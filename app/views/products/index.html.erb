@@ -1,0 +1,30 @@
+<h1>Listando productos</h1>
+
+<%= link_to 'Nuevo producto', new_product_path, class: 'btn btn-primary' %>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <th>Reference</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Brand</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Size</th>
+      <th>Color</th>
+    </tr>
+    <tr>
+      <% @products.each do |product| %>
+          <td><%= product.ref %></td>
+          <td><%= product.price %></td>
+          <td><%= product.quantity %></td>
+          <td><%= product.brand %></td>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= product.size %></td>
+          <td><%= product.color %></td>
+          <td><%= link_to 'Ver producto...', product_path(product) %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>

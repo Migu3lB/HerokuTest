@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PruebaClass</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%if current_user%>
+    <span><%= current_user.name%></span>
+    <%= image_tag current_user.url_photo%>
+<%else%>
+<%= link_to 'Ingresa con Twitter', '/auth/twitter'%>
+<%end%>
+
+<div class="container-fluid">
+    <header class="row">
+        <div class="col-md-6">
+            <p class="notice"><%= notice %></p>
+
+            <p class="alert"><%= alert %></p>
+        </div>
+        <p class="navbar-text pull-right">
+            <% if user_signed_in? %>
+                Logged in as <strong><%= current_user.email %></strong>.
+                <%= link_to 'Edit profile: '+ current_user.name, edit_user_registration_path, :class => 'navbar-link' %>
+                |
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+            <% else %>
+                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+                <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+            <% end %>
+        </p>
+    </header>
+    <section id="main" class="col-md-8 col-md-offset-2">
+        <%= yield %>
+    </section>
+    <footer>
+    </footer>
+</div>
+</body>
+</html>

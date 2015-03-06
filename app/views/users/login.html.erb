@@ -1,0 +1,36 @@
+<% if notice %>
+    <%= notice %>
+<% end %>
+
+<fieldset>
+  <legend>Inicio de sesión</legend>
+
+  <%= form_for @user, url: { action: :login }, method: :post, html: { class: 'form-horizontal' } do |f| %>
+      <div class="form-group">
+        <%= f.label :email, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_field :email, class: 'form-control', placeholder: 'email' %>
+        </div>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <%= f.label :password, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
+        </div>
+      </div>
+      <br>
+      <% if flash[:error] %>
+          <div class="errors">
+            <%= flash[:error] %>
+          </div>
+      <% end %>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit 'Login', class: 'btn btn-primary' %>
+        </div>
+      </div>
+  <% end %>
+
+</fieldset>

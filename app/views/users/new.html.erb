@@ -1,0 +1,19 @@
+<% if !@user.errors.empty? %>
+	<ol>
+		<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ol>
+<% end %>
+
+<%= form_for @user do |f| %>
+	<%= f.label 'Nombre' %><br/>
+	<%= f.text_field :name %><br/>
+	<%= f.label 'Correo' %><br/>
+	<%= f.text_field :email %><br/>
+	<%= f.label 'Contraseña' %><br/>
+	<%= f.text_field :password %><br/>
+	<%= f.submit %><br/><br/>
+	<%= f.label 'Avatar' %><br/>
+	<%= f.file_field :avatar %><br/>
+<% end %>

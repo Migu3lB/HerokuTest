@@ -1,0 +1,8 @@
+<h1>Detalle del usuario</h1>
+
+<h2>Nombre:</h2> <%= @sell.line_item.quantity %> 
+<br/>
+<h2>Email:</h2> <%= @sell.line_item.product.value %> 
+<br/><br/>
+
+<%= link_to 'Volver al listado', url_for(controller: :users, action: :index) %>

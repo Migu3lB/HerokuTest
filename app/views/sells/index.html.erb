@@ -1,0 +1,21 @@
+<h1>Lista de ventas</h1>
+
+<table>
+	<tr>
+		<th>Numero venta | </th> 
+		<th>Nombre del usuario |</th>
+		<th>Email del usuario |</th>
+		<th>Producto |</th>
+		<th>Creada en |</th>
+		<th>Acciones |</th>
+	</tr>
+	<% @sells.each do |sell| %>
+		<tr>
+			<td><%= sell.id%> </td>
+			<td><%= sell.user.name.capitalize %> </td>
+			<td><%= sell.user.email %> </td>
+			<td><%= sell.created_at%> </td>
+			<td><%= link_to 'Ver detalle', url_for(controller: :sells, action: :show, id: sell.id) %></td>
+		</tr>
+	<% end %>
+</table>
