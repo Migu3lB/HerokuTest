@@ -1,8 +1,14 @@
+#heroku create
+#Creating fierce-reaches-3368... done, stack is cedar-14
+#https://fierce-reaches-3368.herokuapp.com/ | https://git.heroku.com/fierce-reaches-3368.git
+#Git remote heroku added
+
+
 source 'https://rubygems.org'
 
 #Instalacion de gemas para Heroku
 group :production do 
-gem 'pg', '~> 0.15.1'
+gem 'pg', '0.15.1'
 gem 'rails_12factor', '0.0.2'
 end
 
@@ -16,8 +22,7 @@ gem 'mini_magick'
 gem 'omniauth-twitter'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+
 #bootstrap
 gem 'bootstrap-sass', '~> 3.3.3'
 # Use SCSS for stylesheets
@@ -61,7 +66,8 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
